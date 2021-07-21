@@ -1,6 +1,6 @@
-from flask import Flask,request
+from flask import Flask,jsonify,request
 
-import json
+
 app = Flask(__name__)
 
 @app.route("/calculate", methods =['POST'])
@@ -17,11 +17,8 @@ def calculate():
     }
   
 
-    return json.dumps(resultMap)
-
-@app.route("/sayhi")
-def say():
-    return "<p>say</p>"    
+    return jsonify(resultMap)
+    
 
 if __name__== '__main__':
     app.run()
